@@ -70,5 +70,58 @@
  .statusCode(200);
 
 
+----------------------------------------------------------
+_**Parameters**_
 
+**1. Query Parameters:** Query parameters are passed in the URL after the ? symbol. 
+For example:
+
+given()
+    .queryParam("key1", "value1")
+    .queryParam("key2", "value2")
+.when()
+    .get("/endpoint")
+.then()
+    .statusCode(200);
+
+**2. Form Parameters:** Form parameters are used in HTTP POST requests with the application/x-www-form-urlencoded content type. 
+For example:
+
+given()
+    .formParam("username", "user1")
+    .formParam("password", "pass123")
+.when()
+    .post("/login")
+.then()
+    .statusCode(200);
+
+**3.Path Parameters:** Path parameters are part of the URL path and are used to parameterize the endpoint. 
+For example:
+
+given()
+    .pathParam("userId", 123)
+.when()
+    .get("/users/{userId}")
+.then()
+    .statusCode(200);
+
+**4. Request Parameters:** Request parameters are used in HTTP GET requests to pass data in the URL. They are similar to query parameters. 
+For example:
+
+given()
+    .param("search", "keyword")
+.when()
+    .get("/search")
+.then()
+    .statusCode(200);
+
+**5. Multi-Value Parameters:** RestAssured supports passing multi-value parameters, such as multiple values for the same parameter key. 
+For example:
+
+given()
+    .queryParams("key", "value1", "value2", "value3")
+.when()
+    .get("/endpoint")
+.then()
+    .statusCode(200);
 
